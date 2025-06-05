@@ -1,0 +1,52 @@
+[
+  {
+    "id": "m1",
+    "name": "Iron Man",
+    "image": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/ironman_lob_crd_01.jpg"
+  },
+  {
+    "id": "m2",
+    "name": "Spider-Man",
+    "image": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/spiderman_lob_crd_01.jpg"
+  },
+  {
+    "id": "m3",
+    "name": "Captain America",
+    "image": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/captainamerica_lob_crd_01.jpg"
+  },
+  {
+    "id": "m4",
+    "name": "Black Widow",
+    "image": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/blackwidow_lob_crd_01.jpg"
+  },
+  {
+    "id": "m5",
+    "name": "Thor",
+    "image": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/thor_lob_crd_01.jpg"
+  },
+  {
+    "id": "m6",
+    "name": "Hulk",
+    "image": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/hulk_lob_crd_01.jpg"
+  },
+  {
+    "id": "m7",
+    "name": "Doctor Strange",
+    "image": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/doctorstrange_lob_crd_01.jpg"
+  },
+  {
+    "id": "m8",
+    "name": "Black Panther",
+    "image": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/blackpanther_lob_crd_01.jpg"
+  },
+  {
+    "id": "m9",
+    "name": "Scarlet Witch",
+    "image": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/scarletwitch_lob_crd_01.jpg"
+  },
+  {
+    "id": "m10",
+    "name": "Ant-Man",
+    "image": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/antman_lob_crd_01.jpg"
+  }
+]
