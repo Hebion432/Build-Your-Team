@@ -1,0 +1,15 @@
+.header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+  border-radius: 50rem;
+  background-color: rgb(155, 242, 245);
+
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header h1 {
+  font-size: 3rem;
+  color: rgb(7, 2, 77);
+}
