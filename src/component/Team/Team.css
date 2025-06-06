@@ -46,7 +46,7 @@
   border: 1px solid #ccc;
 }
 
-/* Hero info section (booster + buttons) */
+/* Hero info section */
 .hero-info {
   margin-top: 6px;
   width: 100%;
@@ -63,10 +63,16 @@
   padding: 4px 8px;
   border-radius: 6px;
   color: #34495e;
-  display: inline-block;
 }
 
-/* Buttons for adding/removing booster */
+/* Empty cart message */
+.empty-cart {
+  font-size: 1.8rem;
+  text-align: center;
+  grid-column: 1 / -1; /* Span full width of grid */
+}
+
+/* Booster buttons */
 .add-booster,
 .remove-booster {
   background-color: #3498db;
@@ -87,16 +93,16 @@
   background-color: #2980b9;
 }
 
-/* Modal close button */
-
+/* Bottom button container */
 .end-buttons {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   gap: 20px;
 }
+
+/* Close buttons */
 .close-button {
-  margin-top: 20px;
   background-color: #ff6a6a;
   color: white;
   border: none;
@@ -105,11 +111,8 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .close-button:hover {
-  background-color: #2980b9;
+  background-color: #e05252;
 }

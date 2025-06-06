@@ -21,24 +21,30 @@ function Cart({ showCart, closeModal, teamhero }) {
       <h3>Your Team Heroes</h3>
       {/* add hero grid here so that this act as a grid container and every added card as one grid cell */}
       <div className="hero-grid">
-        {teamhero.map((hero) => (
-          <AddHero
-            key={hero.id}
-            id={hero.id}
-            name={hero.name}
-            image={hero.image}
-            booster={hero.giveBooster}
-          />
-        ))}
+        {teamhero.length > 0 ? (
+          teamhero.map((hero) => (
+            <AddHero
+              key={hero.id}
+              id={hero.id}
+              name={hero.name}
+              image={hero.image}
+              booster={hero.giveBooster}
+            />
+          ))
+        ) : (
+          <div class="empty-cart"> Add Some Heroes First </div>
+        )}
       </div>
 
       <div className="end-buttons">
         <button className="close-button" onClick={closeModal}>
           Get More
         </button>
-        <button className="close-button" onClick={closeModal}>
-          Team Ready
-        </button>
+        {teamhero.length > 0 && (
+          <button className="close-button" onClick={closeModal}>
+            Team Ready
+          </button>
+        )}
       </div>
     </Modal>
   );

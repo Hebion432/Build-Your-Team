@@ -12,15 +12,24 @@ function App() {
   const openModal = () => setShowCart(true);
   const closeModal = () => setShowCart(false);
 
-  const onAddToTeam = (productid, productname, productimage) => {
-    // console.log(`${productname} is added in teams`);
-    const newHero = {
-      id: productid,
-      name: productname,
-      image: productimage,
-      giveBooster: 1,
-    };
-    setHeroTeam((data) => [...data, newHero]);
+  const onAddToTeam = (heroid, heroname, heroimage) => {
+    //add new only if already didn't existed
+    const heroIndex = heroTeam.findIndex((hero) => hero.id === heroid);
+
+    if (heroIndex === -1) {
+      // first time added
+      const newHero = {
+        id: heroid,
+        name: heroname,
+        image: heroimage,
+        giveBooster: 1,
+      };
+      setHeroTeam((data) => [...data, newHero]);
+    } else {
+      const updataedHeroList = [...heroTeam];
+      updataedHeroList[heroIndex].giveBooster += 1;
+      setHeroTeam(updataedHeroList);
+    }
   };
 
   return (
