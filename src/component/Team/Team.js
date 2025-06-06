@@ -1,0 +1,47 @@
+import Modal from "../Modal/Modal";
+import "./Team.css";
+
+function AddHero({ id, name, image, booster }) {
+  return (
+    <div className="hero-list">
+      <p className="hero-name">{name}</p>
+      <img className="hero-image" alt={name} src={image}></img>
+      <div className="hero-info">
+        <div className="hero-booster"> Booster: {booster}</div>
+        <button className="add-booster">+</button>
+        <button className="remove-booster">-</button>
+      </div>
+    </div>
+  );
+}
+
+function Cart({ showCart, closeModal, teamhero }) {
+  return (
+    <Modal show={showCart} closeModal={closeModal}>
+      <h3>Your Team Heroes</h3>
+      {/* add hero grid here so that this act as a grid container and every added card as one grid cell */}
+      <div className="hero-grid">
+        {teamhero.map((hero) => (
+          <AddHero
+            key={hero.id}
+            id={hero.id}
+            name={hero.name}
+            image={hero.image}
+            booster={hero.giveBooster}
+          />
+        ))}
+      </div>
+
+      <div className="end-buttons">
+        <button className="close-button" onClick={closeModal}>
+          Get More
+        </button>
+        <button className="close-button" onClick={closeModal}>
+          Team Ready
+        </button>
+      </div>
+    </Modal>
+  );
+}
+
+export default Cart;

@@ -1,7 +1,7 @@
-import "./Product.css";
+import "./Heroes.css";
 import productdata from "../../data/productdetails.json";
 
-function Product() {
+function Product({ onAddToTeam }) {
   return (
     <div className="product-grid">
       {productdata.map((product) => {
@@ -13,7 +13,13 @@ function Product() {
               src={product.image}
             ></img>
             <div className="product-name"> {product.name}</div>
-            <button>Add to Cart</button>
+            <button
+              onClick={() =>
+                onAddToTeam(product.id, product.name, product.image)
+              }
+            >
+              Add to Team
+            </button>
           </div>
         );
       })}
