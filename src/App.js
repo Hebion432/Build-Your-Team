@@ -12,6 +12,27 @@ function App() {
   const openModal = () => setShowCart(true);
   const closeModal = () => setShowCart(false);
 
+  const incrementPower = (heroid) => {
+    const heroIndex = heroTeam.findIndex((hero) => hero.id === heroid);
+    const updataedHeroList = [...heroTeam];
+    updataedHeroList[heroIndex].giveBooster += 1;
+    setHeroTeam(updataedHeroList);
+  };
+
+  const decrementPower = (heroid) => {
+    const heroIndex = heroTeam.findIndex((hero) => hero.id === heroid);
+    let updataedHeroList = [...heroTeam];
+
+    const power = updataedHeroList[heroIndex].giveBooster;
+    if (power === 1) {
+      // that means ek aur decrease and ye remove ho jana chaiye team se
+      updataedHeroList = updataedHeroList.filter((hero) => hero.id !== heroid);
+    } else {
+      updataedHeroList[heroIndex].giveBooster -= 1;
+    }
+    setHeroTeam(updataedHeroList);
+  };
+
   const onAddToTeam = (heroid, heroname, heroimage) => {
     //add new only if already didn't existed
     const heroIndex = heroTeam.findIndex((hero) => hero.id === heroid);
@@ -36,7 +57,13 @@ function App() {
     <div>
       <Header openModal={openModal} />
       <Product onAddToTeam={onAddToTeam} />
-      <Team showCart={showCart} closeModal={closeModal} teamhero={heroTeam} />
+      <Team
+        showCart={showCart}
+        closeModal={closeModal}
+        teamhero={heroTeam}
+        incPower={incrementPower}
+        decPower={decrementPower}
+      />
     </div>
   );
 }

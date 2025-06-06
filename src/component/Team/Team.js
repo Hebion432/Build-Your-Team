@@ -1,21 +1,25 @@
 import Modal from "../Modal/Modal";
 import "./Team.css";
 
-function AddHero({ id, name, image, booster }) {
+function AddHero({ id, name, image, booster, incPower, decPower }) {
   return (
     <div className="hero-list">
       <p className="hero-name">{name}</p>
       <img className="hero-image" alt={name} src={image}></img>
       <div className="hero-info">
         <div className="hero-booster"> Booster: {booster}</div>
-        <button className="add-booster">+</button>
-        <button className="remove-booster">-</button>
+        <button className="add-booster" onClick={() => incPower(id)}>
+          +
+        </button>
+        <button className="remove-booster" onClick={() => decPower(id)}>
+          -
+        </button>
       </div>
     </div>
   );
 }
 
-function Cart({ showCart, closeModal, teamhero }) {
+function Cart({ showCart, closeModal, teamhero, incPower, decPower }) {
   return (
     <Modal show={showCart} closeModal={closeModal}>
       <h3>Your Team Heroes</h3>
@@ -29,6 +33,8 @@ function Cart({ showCart, closeModal, teamhero }) {
               name={hero.name}
               image={hero.image}
               booster={hero.giveBooster}
+              incPower={incPower}
+              decPower={decPower}
             />
           ))
         ) : (
