@@ -8,7 +8,6 @@ function App() {
       <div>
         <Product />
       </div>
-      Hello From Amit
     </div>
   );
 }
