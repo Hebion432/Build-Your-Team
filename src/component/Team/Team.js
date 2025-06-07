@@ -7,12 +7,12 @@ function AddHero({ id, name, image, booster, incPower, decPower }) {
       <p className="hero-name">{name}</p>
       <img className="hero-image" alt={name} src={image}></img>
       <div className="hero-info">
-        <div className="hero-booster"> Booster: {booster}</div>
+        <div className="hero-booster"> Power: {booster}</div>
         <button className="add-booster" onClick={() => incPower(id)}>
-          +
+          🔥
         </button>
         <button className="remove-booster" onClick={() => decPower(id)}>
-          -
+          🩸
         </button>
       </div>
     </div>

@@ -72,7 +72,7 @@ function App() {
   };
 
   return (
-    <div>
+    <React.Fragment>
       <Header openModal={openModal} openAddHeroes={openAddHeroes} />
       <Hero heroes={heroes} onAddToTeam={onAddToTeam} />
       <Team
@@ -87,7 +87,7 @@ function App() {
         closeAddHeroes={closeAddHeroes}
         getHeroName={getHeroNameFormChild}
       ></AddNewHero>
-    </div>
+    </React.Fragment>
   );
 }
 

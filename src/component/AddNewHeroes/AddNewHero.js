@@ -1,18 +1,27 @@
 import Modal from "../Modal/Modal";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "./AddNewHero.css";
 
 function AddNewHero({ showAddHeroes, closeAddHeroes, getHeroName }) {
   // Now we need the input field value from the FORM for that we will use UseRef hook
-  const nameRef = useRef();
+  // const nameRef = useRef();
+
+  // we will do this using useState hook
+
+  const [heroName, setHeroName] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    // we will get the whole html element in nameRef.currnt
-    const heroName = nameRef.current.value;
     getHeroName(heroName);
   }
+
+  const setNewHeroName = (event) => {
+    const enteredName = event.target.value;
+    // console.log(enteredName);
+    // ye har bar heroName ko set karta rahega jab tak user submit button pe click na kare
+    setHeroName(enteredName);
+  };
   return (
     <Modal show={showAddHeroes} closeModal={closeAddHeroes}>
       <div className="add-hero-container">
@@ -20,7 +29,13 @@ function AddNewHero({ showAddHeroes, closeAddHeroes, getHeroName }) {
         {/* button ke submit hote hi form ka onsubmit chal jaayega and onsubmit refresh the page which we don't want */}
         <form onSubmit={handleSubmit} className="add-hero-form">
           <div className="form-label">Enter Hero Name</div>
-          <input ref={nameRef} className="form-input" name="hero-name" />
+          <input
+            className="form-input"
+            name="hero-name"
+            // onchange har baar jab value change hogi tab setNewHeroName ko chalayega
+            value={heroName}
+            onChange={setNewHeroName}
+          />
           <button type="submit" className="submit-button">
             Add Hero
           </button>
