@@ -16,12 +16,19 @@
 }
 
 /* Cart Button */
-.cart-button {
+
+.side-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+.cart-button,
+.add-newHeroes {
   background-color: #3498db;
   border-radius: 50rem;
   color: white;
   border: none;
   padding: 10px 16px;
+  margin: 1em;
   font-size: 16px;
   cursor: pointer;
 }

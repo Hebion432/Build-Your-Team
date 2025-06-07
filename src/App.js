@@ -3,14 +3,20 @@ import React, { useState } from "react";
 import Header from "./component/Header/header";
 import Product from "./component/Heroes/Heroes";
 import Team from "./component/Team/Team";
+import AddNewHero from "./component/AddNewHeroes/AddNewHero";
 
 function App() {
   const [showCart, setShowCart] = useState(false);
+  const [showAddHeroes, setShowAddHeroes] = useState(false);
+
   const [heroTeam, setHeroTeam] = useState([]);
 
   // handler functions
   const openModal = () => setShowCart(true);
   const closeModal = () => setShowCart(false);
+
+  const openAddHeroes = () => setShowAddHeroes(true);
+  const closeAddHeroes = () => setShowAddHeroes(false);
 
   const incrementPower = (heroid) => {
     const heroIndex = heroTeam.findIndex((hero) => hero.id === heroid);
@@ -55,7 +61,7 @@ function App() {
 
   return (
     <div>
-      <Header openModal={openModal} />
+      <Header openModal={openModal} openAddHeroes={openAddHeroes} />
       <Product onAddToTeam={onAddToTeam} />
       <Team
         showCart={showCart}
@@ -64,6 +70,10 @@ function App() {
         incPower={incrementPower}
         decPower={decrementPower}
       />
+      <AddNewHero
+        showAddHeroes={showAddHeroes}
+        closeAddHeroes={closeAddHeroes}
+      ></AddNewHero>
     </div>
   );
 }
