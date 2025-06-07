@@ -1,10 +1,9 @@
 import "./Heroes.css";
-import productdata from "../../data/productdetails.json";
 
-function Product({ onAddToTeam }) {
+function Product({ heroes, onAddToTeam }) {
   return (
     <div className="product-grid">
-      {productdata.map((product) => {
+      {heroes.map((product) => {
         return (
           <div key={product.id} className="product-card">
             <img

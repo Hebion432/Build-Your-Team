@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
 import Header from "./component/Header/header";
-import Product from "./component/Heroes/Heroes";
+import Hero from "./component/Heroes/Heroes";
 import Team from "./component/Team/Team";
 import AddNewHero from "./component/AddNewHeroes/AddNewHero";
+import initialHeroes from "./data/productdetails.json";
 
 function App() {
   const [showCart, setShowCart] = useState(false);
+  const [heroes, setHeroes] = useState(initialHeroes);
   const [showAddHeroes, setShowAddHeroes] = useState(false);
 
   const [heroTeam, setHeroTeam] = useState([]);
@@ -24,7 +26,6 @@ function App() {
     updataedHeroList[heroIndex].giveBooster += 1;
     setHeroTeam(updataedHeroList);
   };
-
   const decrementPower = (heroid) => {
     const heroIndex = heroTeam.findIndex((hero) => hero.id === heroid);
     let updataedHeroList = [...heroTeam];
@@ -59,10 +60,21 @@ function App() {
     }
   };
 
+  const getHeroNameFormChild = (heroName) => {
+    const newAddHero = {
+      id: heroes.length + 1,
+      name: heroName,
+      image: "",
+    };
+
+    setHeroes((state) => [...state, newAddHero]);
+    closeAddHeroes();
+  };
+
   return (
     <div>
       <Header openModal={openModal} openAddHeroes={openAddHeroes} />
-      <Product onAddToTeam={onAddToTeam} />
+      <Hero heroes={heroes} onAddToTeam={onAddToTeam} />
       <Team
         showCart={showCart}
         closeModal={closeModal}
@@ -73,6 +85,7 @@ function App() {
       <AddNewHero
         showAddHeroes={showAddHeroes}
         closeAddHeroes={closeAddHeroes}
+        getHeroName={getHeroNameFormChild}
       ></AddNewHero>
     </div>
   );
